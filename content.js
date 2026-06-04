@@ -23,7 +23,7 @@ window.SITE_CONTENT = {
       { title: "危险世界", artist: "方大同", note: "克制、低频、城市边缘的独白。", tone: "violet", size: "", cover: "assets/covers/dangerous-world.jpg" },
       { title: "Sunflower", artist: "Spider-Verse", note: "明亮但不轻飘，是某些下午的安全感。", tone: "gold", size: "wide", cover: "assets/covers/sunflower.jpg" },
       { title: "黑色柳丁", artist: "陶喆", note: "粗粝、真诚，像把情绪直接接进音箱。", tone: "ink", size: "tall", cover: "assets/covers/black-tangerine.jpg" },
-      { title: "愿与愁", artist: "林俊杰", note: "安静地把复杂情绪叠起来。", tone: "blue", size: "", cover: "assets/covers/grief-and-wish.jpg" },
+      { title: "愿与愁", artist: "林俊杰", note: "安静地把复杂情绪叠起来。", tone: "blue", size: "", cover: "assets/covers/grief-and-wish-cropped.jpg" },
       { title: "Starboy", artist: "The Weeknd", note: "冷光、速度感和一点危险的漂亮。", tone: "electric", size: "", cover: "assets/covers/starboy.jpg" },
       { title: "回到未来", artist: "方大同", note: "复古和未来感之间的松弛摆动。", tone: "mint", size: "wide", cover: "assets/covers/back-to-wonderland.jpg" },
       { title: "改变自己", artist: "王力宏", note: "像一次清醒的自我更新。", tone: "green", size: "", cover: "assets/covers/change-me.jpg" },

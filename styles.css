@@ -444,12 +444,6 @@ h3 {
   opacity: 0.55;
 }
 
-.cover-art.with-image.trim-grief {
-  background:
-    linear-gradient(180deg, rgba(4, 7, 18, 0), rgba(4, 7, 18, 0.08)),
-    var(--cover-image) center calc(50% + var(--image-shift)) / calc(100% + 6px) auto;
-}
-
 .sound-card:hover .cover-art,
 .sound-card:focus .cover-art {
   transform: scale(1.045);
