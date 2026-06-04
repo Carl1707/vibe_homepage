@@ -5,13 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="个人唱片墙 Sound Wall：用音乐构成第一印象的 Vibe Coding 主页。"
+      content="Vibe Coding 作业：个人唱片墙 Sound Wall，用音乐构成第一印象。"
     />
     <title>个人唱片墙 | Sound Wall</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700;800;900&family=Noto+Serif+SC:wght@700;900&family=Playfair+Display:wght@700;800;900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700;800;900&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
@@ -19,9 +19,9 @@
     <script src="app.js" defer></script>
   </head>
   <body>
-    <div class="aurora aurora-a" aria-hidden="true"></div>
-    <div class="aurora aurora-b" aria-hidden="true"></div>
-    <div class="aurora aurora-c" aria-hidden="true"></div>
+    <div class="glow glow-a" aria-hidden="true"></div>
+    <div class="glow glow-b" aria-hidden="true"></div>
+    <div class="glow glow-c" aria-hidden="true"></div>
     <div class="grain" aria-hidden="true"></div>
 
     <header class="site-header">
@@ -29,17 +29,17 @@
         <span class="logo-mark">SW</span>
         <span>Sound Wall</span>
       </a>
-      <nav class="nav" aria-label="页面导航">
-        <a href="#about">印象</a>
-        <a href="#wall">唱片墙</a>
-        <a href="#now">正在播放</a>
+      <nav aria-label="页面导航">
+        <a href="#about">Intro</a>
+        <a href="#sound-wall">Wall</a>
+        <a href="#now">Now</a>
       </nav>
     </header>
 
     <main id="top">
-      <section class="hero panel" id="about">
-        <div class="hero-copy">
-          <p class="overline">PERSONAL SOUND ARCHIVE · VIBE CODING</p>
+      <section class="hero" id="about">
+        <div class="hero-copy panel">
+          <p class="overline">PERSONAL SOUND ARCHIVE</p>
           <h1>
             <span id="greeting">个人唱片墙</span>
             <strong id="nickname">Sound Wall</strong>
@@ -48,61 +48,48 @@
           <div class="intro-list" id="intro-list"></div>
           <div class="chip-row" id="tags"></div>
           <div class="hero-actions">
-            <a class="primary-button" href="#wall">浏览唱片墙</a>
-            <button class="ghost-button" id="theme-button" type="button">切换夜间聚光</button>
+            <a class="primary-link" href="#sound-wall">进入唱片墙</a>
+            <button class="ghost-button" id="theme-button" type="button">切换低光模式</button>
           </div>
         </div>
 
-        <aside class="profile-card">
-          <img id="portrait" src="assets/avatar-placeholder.svg" alt="可替换的个人代表图" />
-          <div>
-            <p class="card-label">FIRST IMPRESSION</p>
-            <p id="photo-caption">用专辑、歌曲和生活片段组成第一印象。</p>
-          </div>
+        <aside class="profile-card panel">
+          <img id="portrait" src="assets/covers/genesis.jpg" alt="林俊杰《新地球》专辑封面" />
+          <p class="card-label">FIRST IMPRESSION</p>
+          <p id="photo-caption">热爱音乐和生活的人，常常会把情绪藏进歌里。</p>
           <button id="quote-button" type="button">抽一句声音注脚</button>
           <p class="quote" id="quote" aria-live="polite"></p>
         </aside>
       </section>
 
-      <section class="section-heading" id="wall">
-        <p class="overline">SOUND WALL · MEMORY COLLAGE</p>
+      <section class="section-title" id="sound-wall">
+        <p class="overline">MUSIC MEMORY COLLAGE</p>
         <h2 id="wall-title">个人唱片墙 / Sound Wall</h2>
         <p id="wall-description"></p>
       </section>
 
       <section class="sound-layout">
-        <div class="sound-wall" id="sound-wall" aria-label="个人唱片墙"></div>
-        <aside class="panel now-panel" id="now">
+        <div class="sound-wall" id="sound-wall-grid" aria-label="个人唱片墙"></div>
+
+        <aside class="now-panel panel" id="now">
           <p class="card-label">NOW SPINNING</p>
           <h3 id="now-title">点击任意唱片</h3>
-          <p class="now-artist" id="now-artist">让它成为这一刻的背景音。</p>
+          <p class="now-artist" id="now-artist">让它短暂成为这一刻的背景音。</p>
           <p id="now-note">
             这面墙不是榜单，而是一份个人声音档案：专辑、歌曲、记忆和生活的情绪底色。
           </p>
+          <button class="primary-link shuffle-button" id="shuffle-button" type="button">随机抽一张背景音</button>
+          <p class="shuffle-result" id="shuffle-result" aria-live="polite"></p>
         </aside>
       </section>
 
-      <section class="panel egg-panel" id="egg">
-        <div>
-          <p class="overline">INTERACTION EASTER EGG</p>
-          <h2 id="egg-title">隐藏彩蛋：唱针落下</h2>
-          <p id="egg-description"></p>
-        </div>
-        <div class="needle-stage">
-          <button class="needle-button" id="shuffle-button" type="button">随机抽一张背景音</button>
-          <div class="record-orbit" aria-hidden="true">
-            <span></span>
-          </div>
-          <p id="shuffle-result" aria-live="polite">点一下按钮，唱针会落到一张随机唱片上。</p>
-        </div>
-      </section>
-
-      <section class="custom-note">
+      <section class="custom-note panel">
         <p class="overline">HOW TO CUSTOMIZE</p>
-        <h2>这不是歌单排名，而是一份声音档案</h2>
+        <h2>这不是“我听过什么”，而是“什么声音组成了我”。</h2>
         <p>
-          唱片条目、介绍文案和卡片尺寸都在 <code>content.js</code>。
-          当前封面为抽象视觉占位；如果你准备真实封面图，可以放入 <code>assets/</code> 后替换路径。
+          唱片、介绍和排布信息都在 <code>content.js</code>。
+          当前使用本地封面图片；如果你想换歌、换封面或调整卡片大小，直接改每张唱片的 <code>cover</code>、<code>note</code> 和
+          <code>size</code> 字段即可。
         </p>
       </section>
     </main>

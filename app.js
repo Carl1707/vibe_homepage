@@ -39,28 +39,34 @@
     });
   }
 
-  function updateNowPlaying(album) {
+  function setNowPlaying(album) {
     setText("#now-title", album.title);
     setText("#now-artist", album.artist);
     setText("#now-note", album.note);
-    const panel = $("#now");
-    panel.classList.remove("pulse");
-    void panel.offsetWidth;
-    panel.classList.add("pulse");
+    setText("#shuffle-result", `唱针落在：${album.artist} - ${album.title}`);
   }
 
-  function createCover(album) {
+  function createCover(album, index) {
     const cover = document.createElement("div");
-    cover.className = `album-cover tone-${album.tone}`;
+    cover.className = `cover-art tone-${album.tone}`;
+    cover.setAttribute("aria-hidden", "true");
+    cover.style.setProperty("--tilt", `${[-2, 1, -1, 2, 0][index % 5]}deg`);
+
     if (album.cover) {
-      cover.style.backgroundImage = `url("${album.cover}")`;
-      cover.classList.add("has-image");
-    } else {
-      cover.innerHTML = `
-        <span class="cover-orbit"></span>
-        <span class="cover-title">${album.title}</span>
-      `;
+      cover.style.setProperty("--cover-image", `url("${album.cover}")`);
+      cover.classList.add("with-image");
+      return cover;
     }
+
+    const ring = document.createElement("span");
+    ring.className = "record-ring";
+    const title = document.createElement("span");
+    title.className = "cover-title";
+    title.textContent = album.title;
+    const artist = document.createElement("span");
+    artist.className = "cover-artist";
+    artist.textContent = album.artist;
+    cover.append(ring, title, artist);
     return cover;
   }
 
@@ -68,51 +74,56 @@
     const wall = content.soundWall;
     setText("#wall-title", wall.title);
     setText("#wall-description", wall.description);
-    setText("#egg-title", content.egg.title);
-    setText("#egg-description", content.egg.description);
 
     wall.albums.forEach((album, index) => {
-      const card = document.createElement("button");
-      card.type = "button";
-      card.className = `album-card ${album.size || ""}`;
-      card.setAttribute("aria-label", `播放 ${album.title}`);
-      card.style.setProperty("--tilt", `${[-1.7, 1.1, -0.8, 1.9, -1.2][index % 5]}deg`);
-      card.appendChild(createCover(album));
+      const card = document.createElement("article");
+      card.className = `sound-card panel ${album.size || ""}`.trim();
+      card.tabIndex = 0;
+      card.setAttribute("aria-label", `${album.artist}《${album.title}》`);
 
-      const info = document.createElement("span");
-      info.className = "album-info";
-      info.innerHTML = `
-        <strong>${album.title}</strong>
-        <span>${album.artist}</span>
-        <em>${album.note}</em>
-      `;
-      card.appendChild(info);
-      card.addEventListener("click", () => updateNowPlaying(album));
-      $("#sound-wall").appendChild(card);
+      const cover = createCover(album, index);
+      const meta = document.createElement("div");
+      meta.className = "sound-meta";
+
+      const type = document.createElement("p");
+      type.className = "card-label";
+      type.textContent = "SOUND MEMORY";
+
+      const title = document.createElement("h3");
+      title.textContent = album.title;
+
+      const artist = document.createElement("p");
+      artist.className = "artist";
+      artist.textContent = album.artist;
+
+      const note = document.createElement("p");
+      note.className = "album-note";
+      note.textContent = album.note;
+
+      meta.append(type, title, artist, note);
+      card.append(cover, meta);
+      card.addEventListener("click", () => setNowPlaying(album));
+      card.addEventListener("focus", () => setNowPlaying(album));
+      $("#sound-wall-grid").appendChild(card);
     });
 
-    updateNowPlaying(wall.albums[0]);
+    setNowPlaying(wall.albums[0]);
+
+    $("#shuffle-button").addEventListener("click", () => {
+      const next = wall.albums[Math.floor(Math.random() * wall.albums.length)];
+      setNowPlaying(next);
+    });
   }
 
   function setupTheme() {
     $("#theme-button").addEventListener("click", () => {
-      const isNight = document.body.classList.toggle("soft-light");
-      setText("#theme-button", isNight ? "切回深夜模式" : "切换夜间聚光");
-    });
-  }
-
-  function setupShuffle() {
-    const albums = content.soundWall.albums;
-    $("#shuffle-button").addEventListener("click", () => {
-      const album = albums[Math.floor(Math.random() * albums.length)];
-      updateNowPlaying(album);
-      setText("#shuffle-result", `唱针落在《${album.title}》：${album.note}`);
+      const isDim = document.body.classList.toggle("dim");
+      setText("#theme-button", isDim ? "切换原始光线" : "切换低光模式");
     });
   }
 
   renderProfile();
   renderSoundWall();
   setupTheme();
-  setupShuffle();
   setText("#year", new Date().getFullYear());
 })();
