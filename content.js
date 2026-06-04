@@ -19,7 +19,7 @@ window.SITE_CONTENT = {
       "一个克制、干净、带有个人情绪的声音档案。这里的专辑和歌曲乱序排列，像一块音乐记忆拼贴：它们共同构成我生活里的背景音。",
     albums: [
       { title: "After Hours", artist: "The Weeknd", note: "夜路、霓虹和迟来的自省。", tone: "red", size: "feature", cover: "assets/covers/after-hours.jpg" },
-      { title: "心中的日月", artist: "王力宏", note: "东方质感的辽阔感，像一段长途旅行。", tone: "sun", size: "tall", cover: "assets/covers/sun-moon.jpg" },
+      { title: "心中的日月", artist: "王力宏", note: "东方质感的辽阔感，像一段长途旅行。", tone: "sun", size: "tall", cover: "assets/covers/sun-moon-cropped.jpg" },
       { title: "危险世界", artist: "方大同", note: "克制、低频、城市边缘的独白。", tone: "violet", size: "", cover: "assets/covers/dangerous-world.jpg" },
       { title: "Sunflower", artist: "Spider-Verse", note: "明亮但不轻飘，是某些下午的安全感。", tone: "gold", size: "wide", cover: "assets/covers/sunflower.jpg" },
       { title: "黑色柳丁", artist: "陶喆", note: "粗粝、真诚，像把情绪直接接进音箱。", tone: "ink", size: "tall", cover: "assets/covers/black-tangerine.jpg" },
