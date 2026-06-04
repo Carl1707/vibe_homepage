@@ -1,0 +1,22 @@
+<svg width="720" height="720" viewBox="0 0 720 720" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="76" y1="67" x2="632" y2="668" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F6E7DD"/>
+      <stop offset="1" stop-color="#DDECEF"/>
+    </linearGradient>
+    <linearGradient id="cup" x1="230" y1="245" x2="498" y2="552" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#8BC2CF"/>
+      <stop offset="1" stop-color="#4D8FA2"/>
+    </linearGradient>
+  </defs>
+  <rect width="720" height="720" rx="58" fill="url(#bg)"/>
+  <circle cx="162" cy="160" r="78" fill="#E4A88D" fill-opacity=".34"/>
+  <circle cx="574" cy="180" r="104" fill="#77AFC0" fill-opacity=".24"/>
+  <path d="M211 318h256v111c0 80-58 143-128 143s-128-63-128-143V318z" fill="url(#cup)"/>
+  <path d="M467 346h32c51 0 87 34 87 78s-36 78-87 78h-32v-42h31c24 0 42-14 42-36s-18-36-42-36h-31v-42z" fill="#4D8FA2"/>
+  <ellipse cx="339" cy="318" rx="128" ry="32" fill="#EFF9F9"/>
+  <ellipse cx="339" cy="318" rx="91" ry="19" fill="#DDB097"/>
+  <path d="M279 252c-18-37 21-49 2-85M343 246c-24-44 27-63 2-113M407 252c-18-37 21-49 2-85" stroke="#4D8FA2" stroke-width="16" stroke-linecap="round" opacity=".55"/>
+  <path d="M230 584h226" stroke="#2D6777" stroke-width="22" stroke-linecap="round" opacity=".2"/>
+  <text x="360" y="646" text-anchor="middle" fill="#2D6777" font-family="Arial, sans-serif" font-size="22" font-weight="700" letter-spacing="5">DATA CAFE</text>
+</svg>

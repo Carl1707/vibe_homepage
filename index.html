@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Vibe Coding 作业：一间展示个人小数据与互动彩蛋的数据小馆。"
+    />
+    <title>我的数据小馆 | Vibe Homepage</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=Noto+Sans+SC:wght@400;500;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="content.js" defer></script>
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <div class="ambient ambient-a" aria-hidden="true"></div>
+    <div class="ambient ambient-b" aria-hidden="true"></div>
+    <div class="grain" aria-hidden="true"></div>
+
+    <header class="site-header">
+      <a class="logo" href="#top" aria-label="回到页面顶部">
+        <span class="logo-mark">小</span>
+        <span>数据小馆</span>
+      </a>
+      <nav aria-label="页面导航">
+        <a href="#about">馆主</a>
+        <a href="#data">菜单</a>
+        <a href="#egg">彩蛋</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero panel" id="about">
+        <div class="hero-copy">
+          <p class="overline">VIBE CODING ASSIGNMENT · PERSONAL DATA CAFE</p>
+          <h1>
+            <span id="greeting">欢迎光临，</span>
+            <strong id="nickname">你的昵称</strong>
+          </h1>
+          <p class="role" id="role">你的专业 · 你的年级</p>
+          <div class="intro-list" id="intro-list"></div>
+          <div class="chip-row" id="tags"></div>
+          <div class="hero-actions">
+            <a class="primary-link" href="#data">查看今日菜单</a>
+            <button class="ghost-button" id="theme-button" type="button">切换夜间营业</button>
+          </div>
+        </div>
+
+        <aside class="profile-card">
+          <img id="portrait" src="assets/avatar-placeholder.svg" alt="可替换的个人代表图" />
+          <div>
+            <p class="card-label">馆主头像</p>
+            <p id="photo-caption">换成一张真正代表你的图片</p>
+          </div>
+          <button id="quote-button" type="button">点头像旁按钮，抽一句馆主吐槽</button>
+          <p class="quote" id="quote" aria-live="polite"></p>
+        </aside>
+      </section>
+
+      <section class="section-title" id="data">
+        <p class="overline">REAL DATA · 请替换为你的真实数据</p>
+        <h2 id="data-title">本周专注能量菜单</h2>
+        <p id="data-description"></p>
+      </section>
+
+      <section class="data-layout">
+        <article class="panel chart-panel">
+          <div class="chart-heading">
+            <div>
+              <span class="card-label" id="data-label">示例数据</span>
+              <h3 id="chart-title">一周专注时长</h3>
+            </div>
+            <span class="unit" id="data-unit">小时</span>
+          </div>
+          <div class="bar-chart" id="bar-chart" role="img" aria-label="个人小数据可视化"></div>
+        </article>
+
+        <aside class="panel insight-panel">
+          <p class="card-label">数据观察</p>
+          <ul id="insights"></ul>
+        </aside>
+      </section>
+
+      <section class="panel egg-panel" id="egg">
+        <div>
+          <p class="overline">INTERACTION EASTER EGG</p>
+          <h2 id="egg-title">隐藏菜单：今日心情拉杆</h2>
+          <p id="egg-description"></p>
+        </div>
+
+        <div class="mood-machine">
+          <label for="mood-range">滑动选择今日能量</label>
+          <input id="mood-range" type="range" min="0" max="100" value="45" />
+          <div class="mood-presets" aria-label="快速选择今日能量">
+            <button type="button" data-mood="18">慢启动</button>
+            <button type="button" data-mood="50">刚刚好</button>
+            <button type="button" data-mood="88">高能量</button>
+          </div>
+          <div class="mood-output">
+            <span id="mood-emoji" aria-hidden="true">🌊</span>
+            <p id="mood-text" aria-live="polite">把拉杆推一推，看看小馆给你配什么隐藏饮品。</p>
+          </div>
+          <div class="stamp-field" id="stamp-field" aria-hidden="true"></div>
+        </div>
+      </section>
+
+      <section class="custom-note">
+        <p class="overline">HOW TO CUSTOMIZE</p>
+        <h2>只改一个文件，也能变成你的作品</h2>
+        <p>
+          个人信息、数据条目、观察结论和彩蛋文案都在 <code>content.js</code>。
+          提交前请务必替换真实数据，并在报告里记录你与 AI 的关键 Prompt 和修改思路。
+        </p>
+      </section>
+    </main>
+
+    <footer>
+      <p>Vibe Coding · 我的数据小馆 · <span id="year"></span></p>
+    </footer>
+  </body>
+</html>
