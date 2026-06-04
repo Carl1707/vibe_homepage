@@ -481,10 +481,33 @@ h3 {
   opacity: 0.55;
 }
 
+.collection-card .cover-art.with-image {
+  background:
+    linear-gradient(180deg, rgba(4, 7, 18, 0), rgba(4, 7, 18, 0.1)),
+    var(--cover-image) center / cover;
+  filter: saturate(0.92) brightness(0.82);
+}
+
+.collection-card .cover-art.with-image::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--cover-image) center / contain no-repeat;
+  image-rendering: auto;
+  transform: translateZ(0);
+  filter: saturate(1.08) contrast(1.04);
+}
+
 .sound-card:hover .cover-art,
 .sound-card:focus .cover-art {
   transform: scale(1.045);
   filter: brightness(0.62);
+}
+
+.collection-card:hover .cover-art,
+.collection-card:focus .cover-art {
+  transform: none;
+  filter: brightness(0.72) saturate(0.92);
 }
 
 .cover-title,
