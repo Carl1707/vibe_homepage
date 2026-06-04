@@ -155,6 +155,43 @@ button {
   background: rgba(255, 255, 255, 0.08);
 }
 
+.music-control {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  z-index: 30;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  max-width: min(420px, calc(100% - 36px));
+  padding: 10px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 999px;
+  color: rgba(244, 247, 251, 0.78);
+  background: rgba(7, 11, 21, 0.72);
+  box-shadow: 0 18px 60px rgba(0, 0, 0, 0.34);
+  backdrop-filter: blur(18px);
+}
+
+.music-control button {
+  border: 0;
+  border-radius: 999px;
+  padding: 8px 12px;
+  color: #07101a;
+  background: linear-gradient(135deg, var(--accent), #fff0c0);
+  font-size: 0.82rem;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.music-control span {
+  overflow: hidden;
+  color: var(--muted);
+  font-size: 0.78rem;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
 main {
   width: min(1180px, calc(100% - 36px));
   margin: 0 auto;
@@ -336,7 +373,7 @@ h3 {
 .sound-wall {
   display: grid;
   grid-template-columns: repeat(12, minmax(0, 1fr));
-  grid-auto-rows: clamp(42px, 5.1vw, 64px);
+  grid-auto-rows: clamp(34px, 4.2vw, 50px);
   gap: 4px;
   padding: 5px;
   border: 1px solid rgba(255, 255, 255, 0.09);
@@ -378,6 +415,9 @@ h3 {
 .sound-wall .sound-card:nth-child(15) { grid-column: 1 / 4; grid-row: 19 / 22; }
 .sound-wall .sound-card:nth-child(16) { grid-column: 7 / 10; grid-row: 19 / 22; }
 .sound-wall .sound-card:nth-child(17) { grid-column: 10 / 13; grid-row: 19 / 22; }
+.sound-wall .sound-card:nth-child(18) { grid-column: 1 / 5; grid-row: 22 / 26; }
+.sound-wall .sound-card:nth-child(19) { grid-column: 5 / 9; grid-row: 22 / 26; }
+.sound-wall .sound-card:nth-child(20) { grid-column: 9 / 13; grid-row: 22 / 26; }
 
 .sound-card:hover,
 .sound-card:focus {
@@ -548,6 +588,9 @@ footer {
 .tone-cream { --tone-a: #4b3b2a; --tone-b: #ead6a1; }
 .tone-rose { --tone-a: #2d1322; --tone-b: #df7ca8; }
 .tone-earth { --tone-a: #2a251b; --tone-b: #a88455; }
+.tone-slate { --tone-a: #20344c; --tone-b: #9ed3df; }
+.tone-garden { --tone-a: #244f45; --tone-b: #ffb36e; }
+.tone-street { --tone-a: #2f2a22; --tone-b: #d4b486; }
 
 @keyframes drift {
   to {
@@ -591,6 +634,12 @@ footer {
 @media (max-width: 640px) {
   .site-header nav {
     display: none;
+  }
+
+  .music-control {
+    right: 10px;
+    bottom: 10px;
+    left: 10px;
   }
 
   h1 {

@@ -23,6 +23,11 @@
     <div class="glow glow-b" aria-hidden="true"></div>
     <div class="glow glow-c" aria-hidden="true"></div>
     <div class="grain" aria-hidden="true"></div>
+    <div class="music-control" aria-label="背景音乐控制">
+      <audio id="background-audio" src="assets/audio/i-walk-this-earth-all-by-myself.mp3" preload="none" loop></audio>
+      <button id="music-toggle" type="button">播放背景音乐</button>
+      <span id="music-status">I Walk This Earth All By Myself</span>
+    </div>
 
     <header class="site-header">
       <a class="logo" href="#top" aria-label="回到页面顶部">
@@ -89,7 +94,8 @@
         <p>
           唱片、介绍和排布信息都在 <code>content.js</code>。
           当前使用本地封面图片；如果你想换歌、换封面或调整卡片大小，直接改每张唱片的 <code>cover</code>、<code>note</code> 和
-          <code>size</code> 字段即可。
+          <code>size</code> 字段即可。背景音乐文件放到
+          <code>assets/audio/i-walk-this-earth-all-by-myself.mp3</code> 即可接上播放按钮。
         </p>
       </section>
     </main>
