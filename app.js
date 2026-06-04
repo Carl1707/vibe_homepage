@@ -39,93 +39,80 @@
     });
   }
 
-  function renderData() {
-    const data = content.data;
-    setText("#data-title", data.title);
-    setText("#chart-title", data.chartTitle);
-    setText("#data-label", data.label);
-    setText("#data-unit", data.unit);
-    setText("#data-description", data.description);
+  function updateNowPlaying(album) {
+    setText("#now-title", album.title);
+    setText("#now-artist", album.artist);
+    setText("#now-note", album.note);
+    const panel = $("#now");
+    panel.classList.remove("pulse");
+    void panel.offsetWidth;
+    panel.classList.add("pulse");
+  }
 
-    const entries = data.entries.map((entry) => ({
-      label: entry.label,
-      value: Math.max(0, Number(entry.value) || 0)
-    }));
-    const max = Math.max(...entries.map((entry) => entry.value), 1);
+  function createCover(album) {
+    const cover = document.createElement("div");
+    cover.className = `album-cover tone-${album.tone}`;
+    if (album.cover) {
+      cover.style.backgroundImage = `url("${album.cover}")`;
+      cover.classList.add("has-image");
+    } else {
+      cover.innerHTML = `
+        <span class="cover-orbit"></span>
+        <span class="cover-title">${album.title}</span>
+      `;
+    }
+    return cover;
+  }
 
-    entries.forEach((entry, index) => {
-      const item = document.createElement("div");
-      item.className = "bar-item";
-      item.style.setProperty("--bar-size", `${(entry.value / max) * 100}%`);
-      item.style.setProperty("--delay", `${index * 80}ms`);
+  function renderSoundWall() {
+    const wall = content.soundWall;
+    setText("#wall-title", wall.title);
+    setText("#wall-description", wall.description);
+    setText("#egg-title", content.egg.title);
+    setText("#egg-description", content.egg.description);
 
-      const value = document.createElement("span");
-      value.className = "bar-value";
-      value.textContent = entry.value;
+    wall.albums.forEach((album, index) => {
+      const card = document.createElement("button");
+      card.type = "button";
+      card.className = `album-card ${album.size || ""}`;
+      card.setAttribute("aria-label", `播放 ${album.title}`);
+      card.style.setProperty("--tilt", `${[-1.7, 1.1, -0.8, 1.9, -1.2][index % 5]}deg`);
+      card.appendChild(createCover(album));
 
-      const bar = document.createElement("span");
-      bar.className = "bar";
-      bar.setAttribute("aria-hidden", "true");
-
-      const label = document.createElement("span");
-      label.className = "bar-label";
-      label.textContent = entry.label;
-
-      item.append(value, bar, label);
-      $("#bar-chart").appendChild(item);
+      const info = document.createElement("span");
+      info.className = "album-info";
+      info.innerHTML = `
+        <strong>${album.title}</strong>
+        <span>${album.artist}</span>
+        <em>${album.note}</em>
+      `;
+      card.appendChild(info);
+      card.addEventListener("click", () => updateNowPlaying(album));
+      $("#sound-wall").appendChild(card);
     });
 
-    data.insights.forEach((insight) => {
-      const item = document.createElement("li");
-      item.textContent = insight;
-      $("#insights").appendChild(item);
-    });
+    updateNowPlaying(wall.albums[0]);
   }
 
   function setupTheme() {
     $("#theme-button").addEventListener("click", () => {
-      const isNight = document.body.classList.toggle("night");
-      setText("#theme-button", isNight ? "切换白天营业" : "切换夜间营业");
+      const isNight = document.body.classList.toggle("soft-light");
+      setText("#theme-button", isNight ? "切回深夜模式" : "切换夜间聚光");
     });
   }
 
-  function setupMoodEgg() {
-    const slider = $("#mood-range");
-    const moods = content.egg.moods;
-    setText("#egg-title", content.egg.title);
-    setText("#egg-description", content.egg.description);
-
-    function dropStamp() {
-      const stamp = document.createElement("span");
-      stamp.className = "stamp";
-      stamp.textContent = "VIBE";
-      stamp.style.left = `${10 + Math.random() * 80}%`;
-      stamp.style.setProperty("--rotate", `${-18 + Math.random() * 36}deg`);
-      $("#stamp-field").appendChild(stamp);
-      setTimeout(() => stamp.remove(), 1600);
-    }
-
-    function updateMood() {
-      const value = Number(slider.value);
-      const mood = moods.find((item) => value <= item.max) || moods[moods.length - 1];
-      setText("#mood-emoji", mood.emoji);
-      setText("#mood-text", mood.text);
-      if (value > 82) dropStamp();
-    }
-
-    slider.addEventListener("input", updateMood);
-    document.querySelectorAll("[data-mood]").forEach((button) => {
-      button.addEventListener("click", () => {
-        slider.value = button.dataset.mood;
-        updateMood();
-      });
+  function setupShuffle() {
+    const albums = content.soundWall.albums;
+    $("#shuffle-button").addEventListener("click", () => {
+      const album = albums[Math.floor(Math.random() * albums.length)];
+      updateNowPlaying(album);
+      setText("#shuffle-result", `唱针落在《${album.title}》：${album.note}`);
     });
-    updateMood();
   }
 
   renderProfile();
-  renderData();
+  renderSoundWall();
   setupTheme();
-  setupMoodEgg();
+  setupShuffle();
   setText("#year", new Date().getFullYear());
 })();

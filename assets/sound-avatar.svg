@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 900" role="img" aria-labelledby="title desc">
+  <title id="title">Sound Wall abstract portrait</title>
+  <desc id="desc">A warm abstract vinyl record and sound wave illustration for a personal music homepage.</desc>
+  <defs>
+    <radialGradient id="glow" cx="34%" cy="24%" r="74%">
+      <stop offset="0" stop-color="#ffe7ba"/>
+      <stop offset=".46" stop-color="#ff8f92"/>
+      <stop offset="1" stop-color="#24304a"/>
+    </radialGradient>
+    <linearGradient id="disc" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#323846"/>
+      <stop offset=".5" stop-color="#10131c"/>
+      <stop offset="1" stop-color="#4f5f89"/>
+    </linearGradient>
+    <filter id="softShadow" x="-25%" y="-25%" width="150%" height="150%">
+      <feDropShadow dx="0" dy="26" stdDeviation="28" flood-color="#05070d" flood-opacity=".46"/>
+    </filter>
+  </defs>
+  <rect width="900" height="900" rx="120" fill="#0a0d15"/>
+  <circle cx="242" cy="152" r="320" fill="url(#glow)" opacity=".78"/>
+  <circle cx="730" cy="735" r="300" fill="#6da8ff" opacity=".18"/>
+  <g filter="url(#softShadow)">
+    <circle cx="448" cy="472" r="264" fill="url(#disc)"/>
+    <circle cx="448" cy="472" r="204" fill="none" stroke="#ffffff" stroke-opacity=".1" stroke-width="2"/>
+    <circle cx="448" cy="472" r="146" fill="none" stroke="#ffffff" stroke-opacity=".09" stroke-width="2"/>
+    <circle cx="448" cy="472" r="72" fill="#fff0d4"/>
+    <circle cx="448" cy="472" r="26" fill="#141824"/>
+  </g>
+  <g fill="none" stroke-linecap="round" stroke-width="26" opacity=".86">
+    <path d="M696 323c35 43 54 94 54 150s-19 107-54 150" stroke="#91c6ff"/>
+    <path d="M752 264c54 60 84 132 84 209s-30 149-84 209" stroke="#ffcab0"/>
+    <path d="M206 623c-35-43-54-94-54-150s19-107 54-150" stroke="#ff8f92"/>
+  </g>
+  <path d="M260 196c76-46 185-61 275-34" fill="none" stroke="#fff5e4" stroke-linecap="round" stroke-width="18" opacity=".42"/>
+  <text x="450" y="810" text-anchor="middle" fill="#fff5e4" font-family="Georgia, 'Times New Roman', serif" font-size="58" font-weight="700" letter-spacing="6">SOUND WALL</text>
+</svg>
