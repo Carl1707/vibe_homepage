@@ -408,6 +408,7 @@ h3 {
 }
 
 .book-wall {
+  grid-template-rows: repeat(16, clamp(42px, 5.8vw, 78px));
   background:
     radial-gradient(circle at 12% 18%, rgba(235, 199, 142, 0.13), transparent 30%),
     linear-gradient(135deg, rgba(255, 255, 255, 0.075), rgba(255, 255, 255, 0.024)),
@@ -492,10 +493,35 @@ h3 {
   content: "";
   position: absolute;
   inset: 0;
+  z-index: 1;
   background: var(--cover-image) center / contain no-repeat;
   image-rendering: auto;
   transform: translateZ(0);
   filter: saturate(1.08) contrast(1.04);
+}
+
+.collection-card.cover-guns-germs-steel .cover-art.with-image,
+.collection-card.cover-erguna-river .cover-art.with-image,
+.collection-card.cover-haizi-poems .cover-art.with-image,
+.collection-card.cover-despicable-me .cover-art.with-image {
+  background:
+    radial-gradient(circle at 24% 18%, color-mix(in srgb, var(--tone-b) 34%, transparent), transparent 34%),
+    radial-gradient(circle at 78% 78%, color-mix(in srgb, var(--tone-a) 78%, transparent), transparent 42%),
+    linear-gradient(135deg, var(--tone-a), var(--tone-b));
+}
+
+.collection-card.cover-guns-germs-steel .cover-art.with-image::before,
+.collection-card.cover-erguna-river .cover-art.with-image::before,
+.collection-card.cover-haizi-poems .cover-art.with-image::before,
+.collection-card.cover-despicable-me .cover-art.with-image::before {
+  inset: -22%;
+  z-index: 0;
+  border: 0;
+  border-radius: 0;
+  background: var(--cover-image) center / cover no-repeat;
+  opacity: 0.34;
+  filter: blur(16px) brightness(0.72) saturate(0.94);
+  transform: scale(1.14);
 }
 
 .sound-card:hover .cover-art,

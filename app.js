@@ -121,6 +121,14 @@
     card.className = "sound-card collection-card";
     card.tabIndex = 0;
     card.setAttribute("aria-label", `${item.artist}《${item.title}》`);
+    if (item.cover) {
+      const coverSlug = item.cover
+        .split("/")
+        .pop()
+        .replace(/\.[^.]+$/, "")
+        .toLowerCase();
+      card.classList.add(`cover-${coverSlug}`);
+    }
     card.style.setProperty("--col", placement.col);
     card.style.setProperty("--row", placement.row);
     if (placement.tall <= 2) card.classList.add("is-short");
@@ -163,20 +171,20 @@
   function renderBookWall() {
     const wall = content.bookWall;
     const layout = [
-      { col: "1 / 5", row: "1 / 5", wide: 4, tall: 4 },
-      { col: "5 / 9", row: "1 / 3", wide: 4, tall: 2 },
-      { col: "5 / 9", row: "3 / 5", wide: 4, tall: 2 },
-      { col: "9 / 13", row: "1 / 5", wide: 4, tall: 4 },
-      { col: "1 / 4", row: "5 / 9", wide: 3, tall: 4 },
-      { col: "4 / 7", row: "5 / 7", wide: 3, tall: 2 },
-      { col: "4 / 7", row: "7 / 9", wide: 3, tall: 2 },
-      { col: "7 / 13", row: "5 / 9", wide: 6, tall: 4 },
-      { col: "1 / 5", row: "9 / 13", wide: 4, tall: 4 },
-      { col: "5 / 9", row: "9 / 11", wide: 4, tall: 2 },
-      { col: "9 / 13", row: "9 / 11", wide: 4, tall: 2 },
-      { col: "5 / 7", row: "11 / 13", wide: 2, tall: 2 },
-      { col: "7 / 10", row: "11 / 13", wide: 3, tall: 2 },
-      { col: "10 / 13", row: "11 / 13", wide: 3, tall: 2 }
+      { col: "1 / 4", row: "1 / 7", wide: 3, tall: 6 },
+      { col: "4 / 7", row: "1 / 7", wide: 3, tall: 6 },
+      { col: "7 / 10", row: "1 / 7", wide: 3, tall: 6 },
+      { col: "10 / 13", row: "1 / 7", wide: 3, tall: 6 },
+      { col: "1 / 4", row: "7 / 13", wide: 3, tall: 6 },
+      { col: "4 / 7", row: "7 / 13", wide: 3, tall: 6 },
+      { col: "1 / 3", row: "13 / 17", wide: 2, tall: 4 },
+      { col: "10 / 13", row: "7 / 13", wide: 3, tall: 6 },
+      { col: "3 / 5", row: "13 / 17", wide: 2, tall: 4 },
+      { col: "5 / 7", row: "13 / 17", wide: 2, tall: 4 },
+      { col: "7 / 10", row: "7 / 13", wide: 3, tall: 6 },
+      { col: "7 / 9", row: "13 / 17", wide: 2, tall: 4 },
+      { col: "9 / 11", row: "13 / 17", wide: 2, tall: 4 },
+      { col: "11 / 13", row: "13 / 17", wide: 2, tall: 4 }
     ];
 
     renderCollectionWall({
