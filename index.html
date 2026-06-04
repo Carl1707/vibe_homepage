@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Vibe Coding 作业：个人唱片墙 Sound Wall，用音乐构成第一印象。"
+      content="Vibe Coding 作业：书影音小馆，用音乐、书籍与电影构成个人生活档案。"
     />
-    <title>个人唱片墙 | Sound Wall</title>
+    <title>书影音小馆 | Sound Wall</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -32,11 +32,13 @@
     <header class="site-header">
       <a class="logo" href="#top" aria-label="回到页面顶部">
         <span class="logo-mark">SW</span>
-        <span>Sound Wall</span>
+        <span>书影音小馆</span>
       </a>
       <nav aria-label="页面导航">
         <a href="#about">Intro</a>
-        <a href="#sound-wall">Wall</a>
+        <a href="#sound-wall">Music</a>
+        <a href="#book-wall">Books</a>
+        <a href="#film-wall">Films</a>
         <a href="#customize">Edit</a>
       </nav>
     </header>
@@ -53,7 +55,7 @@
           <div class="intro-list" id="intro-list"></div>
           <div class="chip-row" id="tags"></div>
           <div class="hero-actions">
-            <a class="primary-link" href="#sound-wall">进入唱片墙</a>
+            <a class="primary-link" href="#sound-wall">进入书影音小馆</a>
             <button class="ghost-button" id="theme-button" type="button">切换低光模式</button>
           </div>
         </div>
@@ -88,12 +90,32 @@
         <div class="sound-wall" id="sound-wall-grid" aria-label="个人唱片墙"></div>
       </section>
 
+      <section class="section-title" id="book-wall">
+        <p class="overline">READING ROOM COLLAGE</p>
+        <h2 id="book-wall-title">个人书墙 / Reading Room</h2>
+        <p id="book-wall-description"></p>
+      </section>
+
+      <section class="collection-layout">
+        <div class="collection-wall book-wall" id="book-wall-grid" aria-label="个人书墙"></div>
+      </section>
+
+      <section class="section-title" id="film-wall">
+        <p class="overline">SCREEN MEMORY COLLAGE</p>
+        <h2 id="film-wall-title">个人影音墙 / Screen Room</h2>
+        <p id="film-wall-description"></p>
+      </section>
+
+      <section class="collection-layout">
+        <div class="collection-wall film-wall" id="film-wall-grid" aria-label="个人影音墙"></div>
+      </section>
+
       <section class="custom-note panel" id="customize">
         <p class="overline">HOW TO CUSTOMIZE</p>
         <h2>这不是“我听过什么”，而是“什么声音组成了我”。</h2>
         <p>
-          唱片、介绍和排布信息都在 <code>content.js</code>。
-          当前使用本地封面图片；如果你想换歌、换封面或调整卡片大小，直接改每张唱片的 <code>cover</code>、<code>note</code> 和
+          唱片、书籍、电影、介绍和排布信息都在 <code>content.js</code>。
+          当前使用本地封面图片；如果你想换作品、换封面或调整卡片大小，直接改每个条目的 <code>cover</code>、<code>note</code> 和
           <code>size</code> 字段即可。背景音乐文件放到
           <code>assets/audio/i-walk-this-earth-all-by-myself.mp3</code> 即可接上播放按钮。
         </p>
@@ -101,7 +123,7 @@
     </main>
 
     <footer>
-      <p>Vibe Coding · Personal Sound Wall · <span id="year"></span></p>
+      <p>Vibe Coding · Personal Books, Sounds & Screens · <span id="year"></span></p>
     </footer>
   </body>
 </html>

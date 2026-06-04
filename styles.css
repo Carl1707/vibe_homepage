@@ -370,6 +370,11 @@ h3 {
   margin: 0 auto;
 }
 
+.collection-layout {
+  width: min(1120px, 100%);
+  margin: 0 auto;
+}
+
 .sound-wall {
   display: grid;
   grid-template-columns: repeat(12, minmax(0, 1fr));
@@ -384,6 +389,38 @@ h3 {
   box-shadow: 0 28px 90px rgba(0, 0, 0, 0.4);
   overflow: hidden;
   backdrop-filter: blur(18px);
+}
+
+.collection-wall {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  grid-template-rows: repeat(12, clamp(42px, 5.8vw, 78px));
+  gap: 4px;
+  padding: 5px;
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 22px;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.025)),
+    rgba(2, 6, 18, 0.42);
+  box-shadow: 0 28px 90px rgba(0, 0, 0, 0.4);
+  overflow: hidden;
+  backdrop-filter: blur(18px);
+}
+
+.book-wall {
+  background:
+    radial-gradient(circle at 12% 18%, rgba(235, 199, 142, 0.13), transparent 30%),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.075), rgba(255, 255, 255, 0.024)),
+    rgba(7, 8, 14, 0.48);
+}
+
+.film-wall {
+  grid-template-rows: repeat(16, clamp(42px, 5.8vw, 78px));
+  background:
+    radial-gradient(circle at 86% 18%, rgba(98, 166, 255, 0.15), transparent 32%),
+    radial-gradient(circle at 20% 85%, rgba(255, 117, 91, 0.12), transparent 30%),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.075), rgba(255, 255, 255, 0.024)),
+    rgba(5, 8, 18, 0.5);
 }
 
 .sound-card {
@@ -629,8 +666,17 @@ footer {
     grid-auto-flow: dense;
   }
 
+  .collection-wall {
+    grid-template-columns: repeat(8, minmax(0, 1fr));
+    grid-template-rows: none;
+    grid-auto-rows: 78px;
+    grid-auto-flow: dense;
+  }
+
   .sound-wall .sound-card,
-  .sound-wall .sound-card:nth-child(n) {
+  .sound-wall .sound-card:nth-child(n),
+  .collection-wall .sound-card,
+  .collection-wall .sound-card:nth-child(n) {
     grid-column: span 2 !important;
     grid-row: span 2 !important;
   }
@@ -660,8 +706,18 @@ footer {
     padding: 3px;
   }
 
+  .collection-wall {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-rows: none;
+    grid-auto-rows: 76px;
+    gap: 3px;
+    border-radius: 16px;
+    padding: 3px;
+  }
+
   .sound-card,
   .sound-wall .sound-card:nth-child(n),
+  .collection-wall .sound-card:nth-child(n),
   .sound-card:not(.feature):not(.wide):not(.tall) {
     grid-column: span 2 !important;
     grid-row: span 2 !important;
