@@ -14,11 +14,6 @@
     setText("#greeting", profile.greeting);
     setText("#nickname", profile.nickname);
     setText("#role", profile.role);
-    setText("#photo-caption", profile.photoCaption);
-
-    const portrait = $("#portrait");
-    portrait.src = profile.portrait;
-    portrait.alt = profile.portraitAlt;
 
     profile.intro.forEach((line) => {
       const paragraph = document.createElement("p");
@@ -30,12 +25,6 @@
       const chip = document.createElement("span");
       chip.textContent = tag;
       $("#tags").appendChild(chip);
-    });
-
-    let quoteIndex = 0;
-    $("#quote-button").addEventListener("click", () => {
-      setText("#quote", profile.quotes[quoteIndex % profile.quotes.length]);
-      quoteIndex += 1;
     });
   }
 
