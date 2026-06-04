@@ -55,38 +55,41 @@
   function renderSoundWall() {
     const wall = content.soundWall;
     const layout = [
-      ["1 / 5", "1 / 5"],
-      ["5 / 9", "1 / 3"],
-      ["5 / 9", "3 / 5"],
-      ["9 / 13", "1 / 5"],
-      ["1 / 4", "5 / 9"],
-      ["4 / 7", "5 / 7"],
-      ["4 / 7", "7 / 9"],
-      ["7 / 13", "5 / 9"],
-      ["1 / 7", "9 / 13"],
-      ["7 / 10", "9 / 11"],
-      ["7 / 10", "11 / 13"],
-      ["10 / 13", "9 / 13"],
-      ["1 / 4", "13 / 15"],
-      ["4 / 7", "13 / 15"],
-      ["7 / 10", "13 / 15"],
-      ["10 / 13", "13 / 15"],
-      ["1 / 4", "15 / 17"],
-      ["4 / 7", "15 / 17"],
-      ["7 / 10", "15 / 17"],
-      ["10 / 13", "15 / 17"]
+      { col: "1 / 5", row: "1 / 5", wide: 4, tall: 4 },
+      { col: "5 / 9", row: "1 / 3", wide: 4, tall: 2 },
+      { col: "5 / 9", row: "3 / 5", wide: 4, tall: 2 },
+      { col: "9 / 13", row: "1 / 5", wide: 4, tall: 4 },
+      { col: "1 / 4", row: "5 / 9", wide: 3, tall: 4 },
+      { col: "4 / 7", row: "5 / 7", wide: 3, tall: 2 },
+      { col: "4 / 7", row: "7 / 9", wide: 3, tall: 2 },
+      { col: "7 / 13", row: "5 / 9", wide: 6, tall: 4 },
+      { col: "1 / 7", row: "9 / 13", wide: 6, tall: 4 },
+      { col: "7 / 10", row: "9 / 11", wide: 3, tall: 2 },
+      { col: "7 / 10", row: "11 / 13", wide: 3, tall: 2 },
+      { col: "10 / 13", row: "9 / 13", wide: 3, tall: 4 },
+      { col: "1 / 4", row: "13 / 15", wide: 3, tall: 2 },
+      { col: "4 / 7", row: "13 / 15", wide: 3, tall: 2 },
+      { col: "7 / 10", row: "13 / 15", wide: 3, tall: 2 },
+      { col: "10 / 13", row: "13 / 15", wide: 3, tall: 2 },
+      { col: "1 / 4", row: "15 / 17", wide: 3, tall: 2 },
+      { col: "4 / 7", row: "15 / 17", wide: 3, tall: 2 },
+      { col: "7 / 10", row: "15 / 17", wide: 3, tall: 2 },
+      { col: "10 / 13", row: "15 / 17", wide: 3, tall: 2 }
     ];
 
     setText("#wall-title", wall.title);
     setText("#wall-description", wall.description);
 
     wall.albums.forEach((album, index) => {
+      const placement = layout[index];
       const card = document.createElement("article");
       card.className = "sound-card";
       card.tabIndex = 0;
       card.setAttribute("aria-label", `${album.artist}《${album.title}》`);
-      card.style.setProperty("--col", layout[index][0]);
-      card.style.setProperty("--row", layout[index][1]);
+      card.style.setProperty("--col", placement.col);
+      card.style.setProperty("--row", placement.row);
+      if (placement.tall <= 2) card.classList.add("is-short");
+      if (placement.wide <= 3) card.classList.add("is-narrow");
 
       const cover = createCover(album, index);
       const overlay = document.createElement("div");

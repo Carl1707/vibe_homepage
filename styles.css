@@ -494,9 +494,14 @@ h3 {
 }
 
 .sound-overlay .card-label {
-  margin-bottom: 8px;
+  position: absolute;
+  top: clamp(10px, 1.4vw, 16px);
+  left: clamp(12px, 1.7vw, 20px);
+  margin: 0;
   color: rgba(214, 226, 255, 0.9);
   font-size: 0.64rem;
+  line-height: 1;
+  text-shadow: 0 8px 20px rgba(0, 0, 0, 0.48);
 }
 
 .sound-overlay h3 {
@@ -522,6 +527,39 @@ h3 {
 
 .album-note {
   font-size: 0.82rem;
+}
+
+.sound-card.is-short .sound-overlay {
+  padding: 28px 14px 13px;
+}
+
+.sound-card.is-short .card-label {
+  top: 9px;
+  left: 13px;
+  font-size: 0.58rem;
+  letter-spacing: 0.16em;
+}
+
+.sound-card.is-short .sound-overlay h3 {
+  max-width: 96%;
+  font-size: clamp(1.02rem, 2vw, 1.72rem);
+}
+
+.sound-card.is-short .artist {
+  font-size: 0.78rem;
+}
+
+.sound-card.is-short .album-note {
+  display: -webkit-box;
+  overflow: hidden;
+  font-size: 0.74rem;
+  line-height: 1.42;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.sound-card.is-narrow .sound-overlay h3 {
+  font-size: clamp(1rem, 1.8vw, 1.55rem);
 }
 
 .custom-note {
