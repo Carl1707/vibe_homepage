@@ -37,6 +37,7 @@
     if (album.cover) {
       cover.style.setProperty("--cover-image", `url("${album.cover}")`);
       cover.classList.add("with-image");
+      if (album.title === "愿与愁") cover.classList.add("trim-grief");
       return cover;
     }
 
