@@ -39,18 +39,11 @@
     });
   }
 
-  function setNowPlaying(album) {
-    setText("#now-title", album.title);
-    setText("#now-artist", album.artist);
-    setText("#now-note", album.note);
-    setText("#shuffle-result", `唱针落在：${album.artist} - ${album.title}`);
-  }
-
   function createCover(album, index) {
     const cover = document.createElement("div");
     cover.className = `cover-art tone-${album.tone}`;
     cover.setAttribute("aria-hidden", "true");
-    cover.style.setProperty("--tilt", `${[-2, 1, -1, 2, 0][index % 5]}deg`);
+    cover.style.setProperty("--image-shift", `${[-1, 1, 0, 2, -2][index % 5]}%`);
 
     if (album.cover) {
       cover.style.setProperty("--cover-image", `url("${album.cover}")`);
@@ -77,13 +70,13 @@
 
     wall.albums.forEach((album, index) => {
       const card = document.createElement("article");
-      card.className = `sound-card panel ${album.size || ""}`.trim();
+      card.className = `sound-card ${album.size || ""}`.trim();
       card.tabIndex = 0;
       card.setAttribute("aria-label", `${album.artist}《${album.title}》`);
 
       const cover = createCover(album, index);
-      const meta = document.createElement("div");
-      meta.className = "sound-meta";
+      const overlay = document.createElement("div");
+      overlay.className = "sound-overlay";
 
       const type = document.createElement("p");
       type.className = "card-label";
@@ -100,18 +93,9 @@
       note.className = "album-note";
       note.textContent = album.note;
 
-      meta.append(type, title, artist, note);
-      card.append(cover, meta);
-      card.addEventListener("click", () => setNowPlaying(album));
-      card.addEventListener("focus", () => setNowPlaying(album));
+      overlay.append(type, title, artist, note);
+      card.append(cover, overlay);
       $("#sound-wall-grid").appendChild(card);
-    });
-
-    setNowPlaying(wall.albums[0]);
-
-    $("#shuffle-button").addEventListener("click", () => {
-      const next = wall.albums[Math.floor(Math.random() * wall.albums.length)];
-      setNowPlaying(next);
     });
   }
 
