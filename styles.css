@@ -431,17 +431,30 @@ h3 {
 }
 
 .cover-art.with-image {
-  background:
-    linear-gradient(180deg, rgba(4, 7, 18, 0), rgba(4, 7, 18, 0.08)),
-    var(--cover-image) center calc(50% + var(--image-shift)) / cover;
+  background: linear-gradient(135deg, var(--tone-a), var(--tone-b));
 }
 
 .cover-art.with-image::before {
+  content: "";
+  position: absolute;
+  inset: -3px;
+  border: 0;
+  background: var(--cover-image) center calc(50% + var(--image-shift)) / cover;
+  transform: scale(1.018);
+  z-index: -2;
+}
+
+.cover-art.with-image::after {
+  content: "";
+  position: absolute;
   inset: 0;
   border: 0;
   border-radius: inherit;
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0.02), rgba(0, 0, 0, 0.14));
-  opacity: 0.55;
+  background:
+    linear-gradient(180deg, rgba(4, 7, 18, 0.02), rgba(4, 7, 18, 0.12)),
+    radial-gradient(circle at center, transparent 56%, rgba(4, 7, 18, 0.16) 100%);
+  opacity: 0.72;
+  z-index: -1;
 }
 
 .sound-card:hover .cover-art,
