@@ -35,9 +35,9 @@ window.SITE_CONTENT = {
       { title: "梦想家 The Dreamer", artist: "方大同", note: "柔软、明亮，适合把心放慢一点。", tone: "cream", size: "", cover: "assets/covers/dreamer.jpg" },
       { title: "Self Love", artist: "Spider-Verse", note: "在混乱里把自己接住。", tone: "rose", size: "", cover: "assets/covers/self-love.jpg" },
       { title: "城乡", artist: "翁杰", note: "现实感、地域感和生活褶皱。", tone: "earth", size: "wide", cover: "assets/covers/city-country.jpg" },
-      { title: "The Beginning", artist: "Flawed Mangoes", note: "像一段刚亮起来的清晨，安静但有向前走的力气。", tone: "slate", size: "wide", cover: "assets/covers/the-beginning.svg" },
-      { title: "园游会", artist: "周杰伦", note: "明亮、轻巧，像夏天傍晚忽然吹来的风。", tone: "garden", size: "", cover: "assets/covers/carnival.svg" },
-      { title: "署前街少年", artist: "赵雷", note: "有街巷、少年和旧时光的温度，朴素却很耐听。", tone: "street", size: "wide", cover: "assets/covers/shu-qian-street-boy.svg" }
+      { title: "The Beginning", artist: "Flawed Mangoes", note: "像一段刚亮起来的清晨，安静但有向前走的力气。", tone: "slate", size: "wide", cover: "assets/covers/the-beginning.jpg" },
+      { title: "园游会", artist: "周杰伦", note: "明亮、轻巧，像夏天傍晚忽然吹来的风。", tone: "garden", size: "", cover: "assets/covers/carnival.jpg" },
+      { title: "署前街少年", artist: "赵雷", note: "有街巷、少年和旧时光的温度，朴素却很耐听。", tone: "street", size: "wide", cover: "assets/covers/shu-qian-street-boy.jpg" }
     ]
   }
 };
