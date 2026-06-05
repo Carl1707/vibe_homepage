@@ -255,37 +255,10 @@
     });
   }
 
-  function setupBackgroundMusic() {
-    const audio = $("#background-audio");
-    const toggle = $("#music-toggle");
-    if (!audio || !toggle) return;
-
-    toggle.addEventListener("click", async () => {
-      try {
-        if (audio.paused) {
-          await audio.play();
-          setText("#music-toggle", "暂停背景音乐");
-          setText("#music-status", "正在播放：I Walk This Earth All By Myself");
-        } else {
-          audio.pause();
-          setText("#music-toggle", "播放背景音乐");
-          setText("#music-status", "I Walk This Earth All By Myself");
-        }
-      } catch (error) {
-        setText("#music-status", "请先把音频文件放入 assets/audio/");
-      }
-    });
-
-    audio.addEventListener("error", () => {
-      setText("#music-status", "音频文件待添加：assets/audio/i-walk-this-earth-all-by-myself.mp3");
-    });
-  }
-
   renderProfile();
   renderSoundWall();
   renderBookWall();
   renderFilmWall();
   setupTheme();
-  setupBackgroundMusic();
   setText("#year", new Date().getFullYear());
 })();

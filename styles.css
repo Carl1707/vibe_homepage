@@ -371,43 +371,6 @@ body.theme-day .wallpaper-horizon {
   background: rgba(255, 255, 255, 0.08);
 }
 
-.music-control {
-  position: fixed;
-  right: 18px;
-  bottom: 18px;
-  z-index: 30;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  max-width: min(420px, calc(100% - 36px));
-  padding: 10px 12px;
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  border-radius: 999px;
-  color: var(--muted);
-  background: var(--control-bg);
-  box-shadow: var(--shadow);
-  backdrop-filter: blur(18px);
-}
-
-.music-control button {
-  border: 0;
-  border-radius: 999px;
-  padding: 8px 12px;
-  color: #07101a;
-  background: linear-gradient(135deg, var(--accent), #fff0c0);
-  font-size: 0.82rem;
-  font-weight: 900;
-  cursor: pointer;
-}
-
-.music-control span {
-  overflow: hidden;
-  color: var(--muted);
-  font-size: 0.78rem;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-}
-
 main {
   width: min(1180px, calc(100% - 36px));
   margin: 0 auto;
@@ -1018,12 +981,6 @@ footer {
 @media (max-width: 640px) {
   .site-header nav {
     display: none;
-  }
-
-  .music-control {
-    right: 10px;
-    bottom: 10px;
-    left: 10px;
   }
 
   h1 {
