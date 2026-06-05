@@ -1,43 +1,23 @@
-Vibe Homepage - 个人唱片墙 / Sound Wall
-======================================
+Vibe Homepage
+=============
 
-项目说明
---------
-这是作业三「Vibe Coding 个人主页」的独立主页版本，主题改为个人声音档案。
-页面用专辑、歌曲和简短注释组成第一印象，表达“这些音乐构成了我的生活背景音”。
+A lightweight static personal homepage built with HTML, CSS, and JavaScript.
 
-线上地址
---------
-Vercel 部署地址：
+Live Site
+---------
 https://carl27.vercel.app
 
-本地预览
---------
-直接双击 index.html 即可打开。
-也可以在本目录运行：
+Local Preview
+-------------
+Open `index.html` directly in a browser,
+or run a simple local server in this directory:
+
 python -m http.server 4184
 
-如何客制化
-----------
-1. 打开 content.js，修改 profile 里的昵称、介绍、标签和引用。
-2. 修改 soundWall.albums，可以增删专辑、调整 note、tone 和 size。
-3. 当前专辑封面使用抽象视觉占位，避免直接使用未授权图片。
-4. 若要使用真实封面，把图片放入 assets/covers，然后给对应 album.cover 填路径，例如 assets/covers/after-hours.jpg。
-5. 打开 styles.css，可以继续调整颜色、圆角、毛玻璃透明度、光晕和卡片尺寸。
-
-交互说明
---------
-- 今日小馆点单：选择心情后，会从音乐、书籍和电影里各抽一项生成私人菜单。
-- 鼠标悬停或键盘聚焦卡片时，封面会轻微放大并显示短评。
-- 顶部按钮可以切换日间 / 夜间主题，夜间背景带动态光幕与星点。
-- 书墙、影墙和唱片墙共同组成个人书影音档案。
-
-作业要求对应
-------------
-- 自我介绍区：第一屏 hero + 个人声音档案说明。
-- 数据/内容展示区：唱片墙作为个人听歌偏好数据与审美档案。
-- 交互彩蛋：今日小馆点单、卡片悬停、键盘聚焦、主题切换。
-
-提交报告提醒
-------------
-报告 PDF 建议包含：成品截图、设计说明、关键 Prompt 记录、内容选择理由、修改过程和踩坑复盘。
+Project Structure
+-----------------
+- `index.html` - page structure
+- `styles.css` - visual styles and layout
+- `app.js` - rendering and interactions
+- `content.js` - page content data
+- `assets/` - local media assets
