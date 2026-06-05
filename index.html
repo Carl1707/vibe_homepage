@@ -39,6 +39,7 @@
       </a>
       <nav aria-label="页面导航">
         <a href="#about">Intro</a>
+        <a href="#daily-order">Order</a>
         <a href="#sound-wall">Music</a>
         <a href="#book-wall">Books</a>
         <a href="#film-wall">Films</a>
@@ -85,6 +86,41 @@
               <strong>羽毛球 · 篮球 · 乒乓球 · 排球</strong>
             </div>
           </div>
+        </aside>
+      </section>
+
+      <section class="daily-order panel" id="daily-order" aria-label="今日小馆点单">
+        <div class="order-copy">
+          <p class="overline">TODAY'S CABINET ORDER</p>
+          <h2>今日小馆点单</h2>
+          <p>从书、声音和影像里各取一份，拼成今天的私人菜单。</p>
+          <div class="mood-row" aria-label="选择今日心情">
+            <button type="button" data-mood="quiet">安静</button>
+            <button type="button" data-mood="brave">热血</button>
+            <button type="button" data-mood="sci-fi">科幻</button>
+            <button type="button" data-mood="real">现实</button>
+            <button type="button" data-mood="light">轻一点</button>
+          </div>
+        </div>
+
+        <aside class="order-ticket" aria-live="polite">
+          <p class="ticket-kicker" id="order-kicker">今日关键词</p>
+          <strong id="order-keyword">夜航 / 远行 / 慢慢进入状态</strong>
+          <dl>
+            <div>
+              <dt>声音</dt>
+              <dd id="order-sound">Run On Sentence</dd>
+            </div>
+            <div>
+              <dt>书</dt>
+              <dd id="order-book">夜晚的潜水艇</dd>
+            </div>
+            <div>
+              <dt>影像</dt>
+              <dd id="order-film">星际穿越</dd>
+            </div>
+          </dl>
+          <p id="order-note">适合一个人把灯调暗，慢慢进入状态。</p>
         </aside>
       </section>
 

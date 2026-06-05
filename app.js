@@ -233,6 +233,84 @@
     });
   }
 
+  function setupDailyOrder() {
+    const buttons = Array.from(document.querySelectorAll("[data-mood]"));
+    if (!buttons.length) return;
+
+    const moodProfiles = {
+      quiet: {
+        label: "安静",
+        keywords: ["安静", "柔软", "温柔", "孤独", "夜晚", "诗", "慢", "治愈", "清淡", "松弛", "梦", "远方"],
+        summary: "安静 / 远行 / 慢慢进入状态",
+        note: "适合一个人把灯调暗，慢慢进入状态。"
+      },
+      brave: {
+        label: "热血",
+        keywords: ["热血", "英雄", "冒险", "燃点", "勇气", "舞台", "抵抗", "并肩", "锋芒", "速度"],
+        summary: "热血 / 冒险 / 把节奏点亮",
+        note: "适合把注意力拉回来，给今天加一点向前的劲。"
+      },
+      "sci-fi": {
+        label: "科幻",
+        keywords: ["宇宙", "科幻", "未来", "技术", "机器人", "机甲", "新地球", "迁徙", "尺度", "星际"],
+        summary: "科幻 / 宇宙 / 向未知处走",
+        note: "适合留给想象力，一个人看见更大的世界。"
+      },
+      real: {
+        label: "现实",
+        keywords: ["现实", "历史", "生活", "普通", "责任", "文明", "世界", "城市", "江水", "命运", "地域"],
+        summary: "现实 / 历史 / 看见生活褶皱",
+        note: "适合把目光落回地面，认真看一看真实的人和事。"
+      },
+      light: {
+        label: "轻一点",
+        keywords: ["明亮", "轻", "夏天", "童年", "喜剧", "下午", "安全感", "柔软", "温柔", "热闹"],
+        summary: "明亮 / 轻快 / 给心情透口气",
+        note: "适合不赶路的时候，让一小段轻快把心情托起来。"
+      }
+    };
+
+    const includesMood = (item, keywords) => {
+      const text = `${item.title} ${item.artist} ${item.note} ${item.tone}`.toLowerCase();
+      return keywords.some((keyword) => text.includes(keyword.toLowerCase()));
+    };
+
+    const pick = (items, profile) => {
+      const matched = items.filter((item) => includesMood(item, profile.keywords));
+      const source = matched.length ? matched : items;
+      return source[Math.floor(Math.random() * source.length)];
+    };
+
+    const formatItem = (item) => `${item.title} / ${item.artist}`;
+
+    function renderOrder(mood) {
+      const profile = moodProfiles[mood] || moodProfiles.quiet;
+      const sound = pick(content.soundWall.albums, profile);
+      const book = pick(content.bookWall.books, profile);
+      const film = pick(content.filmWall.films, profile);
+
+      setText("#order-kicker", `今日关键词 · ${profile.label}`);
+      setText("#order-keyword", profile.summary);
+      setText("#order-sound", formatItem(sound));
+      setText("#order-book", formatItem(book));
+      setText("#order-film", formatItem(film));
+      setText("#order-note", profile.note);
+
+      buttons.forEach((button) => {
+        const isActive = button.dataset.mood === mood;
+        button.classList.toggle("active", isActive);
+        button.setAttribute("aria-pressed", String(isActive));
+      });
+    }
+
+    buttons.forEach((button) => {
+      button.setAttribute("aria-pressed", "false");
+      button.addEventListener("click", () => renderOrder(button.dataset.mood));
+    });
+
+    renderOrder("quiet");
+  }
+
   function setupTheme() {
     const button = $("#theme-button");
     const savedTheme = window.localStorage.getItem("vibe-homepage-theme");
@@ -259,6 +337,7 @@
   renderSoundWall();
   renderBookWall();
   renderFilmWall();
+  setupDailyOrder();
   setupTheme();
   setText("#year", new Date().getFullYear());
 })();
