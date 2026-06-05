@@ -234,9 +234,24 @@
   }
 
   function setupTheme() {
-    $("#theme-button").addEventListener("click", () => {
-      const isDim = document.body.classList.toggle("dim");
-      setText("#theme-button", isDim ? "切换原始光线" : "切换低光模式");
+    const button = $("#theme-button");
+    const savedTheme = window.localStorage.getItem("vibe-homepage-theme");
+
+    function applyTheme(theme) {
+      const isDay = theme === "day";
+      document.body.classList.toggle("theme-day", isDay);
+      document.body.classList.toggle("theme-night", !isDay);
+      document.body.classList.remove("dim");
+      setText("#theme-button", isDay ? "切换夜间主题" : "切换日间主题");
+      button.setAttribute("aria-pressed", String(isDay));
+    }
+
+    applyTheme(savedTheme === "day" ? "day" : "night");
+
+    button.addEventListener("click", () => {
+      const nextTheme = document.body.classList.contains("theme-day") ? "night" : "day";
+      applyTheme(nextTheme);
+      window.localStorage.setItem("vibe-homepage-theme", nextTheme);
     });
   }
 

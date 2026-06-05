@@ -18,7 +18,17 @@
     <script src="content.js" defer></script>
     <script src="app.js" defer></script>
   </head>
-  <body>
+  <body class="theme-night">
+    <div class="wallpaper" aria-hidden="true">
+      <span class="wallpaper-sun"></span>
+      <span class="wallpaper-moon"></span>
+      <span class="wallpaper-cloud wallpaper-cloud-a"></span>
+      <span class="wallpaper-cloud wallpaper-cloud-b"></span>
+      <span class="wallpaper-aurora wallpaper-aurora-a"></span>
+      <span class="wallpaper-aurora wallpaper-aurora-b"></span>
+      <span class="wallpaper-stars"></span>
+      <span class="wallpaper-horizon"></span>
+    </div>
     <div class="glow glow-a" aria-hidden="true"></div>
     <div class="glow glow-b" aria-hidden="true"></div>
     <div class="glow glow-c" aria-hidden="true"></div>
@@ -55,7 +65,7 @@
           <div class="chip-row" id="tags"></div>
           <div class="hero-actions">
             <a class="primary-link" href="#sound-wall">进入书影音小馆</a>
-            <button class="ghost-button" id="theme-button" type="button">切换低光模式</button>
+            <button class="ghost-button" id="theme-button" type="button" aria-pressed="false">切换日间主题</button>
           </div>
         </div>
 
