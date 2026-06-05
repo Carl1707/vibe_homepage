@@ -9,14 +9,14 @@ window.SITE_CONTENT = {
     role: "24级智能感知工程 · Robot Learning / Agentic Policy",
     intro: [
       "我关注机器人如何从感知中理解世界，也关心 agentic policy 如何把决策、行动与反馈连接起来。",
-      "书影音像一间小馆，收纳我理解生活的不同入口；运动则让我保持清醒、轻快和一点胜负欲。"
+      "书影音像一间小馆，收纳我理解生活的不同入口；运动则让我保持清醒、轻快和持续的节奏感。"
     ],
     tags: ["🏸 羽毛球", "🏀 篮球", "🏓 乒乓球", "🏐 排球"]
   },
   soundWall: {
     title: "个人唱片墙 / Sound Wall",
     description:
-      "这一面墙收纳音乐带来的情绪光影：R&B、流行、独立和电影原声彼此贴近，组成我生活里的背景音。",
+      "从R&B、流行、独立到电影原声，这些声音像散落在日常里的坐标，记录一些心情、场景和反复回到的时刻。",
     albums: [
       { title: "After Hours", artist: "The Weeknd", note: "夜路、霓虹和迟来的自省。", tone: "red", size: "feature", cover: "assets/covers/after-hours.jpg" },
       { title: "心中的日月", artist: "王力宏", note: "东方质感的辽阔感，像一段长途旅行。", tone: "sun", size: "tall", cover: "assets/covers/sun-moon-cropped.jpg" },
