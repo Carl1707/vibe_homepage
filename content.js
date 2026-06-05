@@ -4,19 +4,19 @@
  */
 window.SITE_CONTENT = {
   profile: {
-    greeting: "待填充自我介绍",
-    nickname: "About Me",
-    role: "这里之后可以写姓名、专业、兴趣方向和个人关键词。",
+    greeting: "你好，我是",
+    nickname: "CARL",
+    role: "24级智能感知工程 · Robot Learning / Agentic Policy",
     intro: [
-      "这一块先留作个人介绍入口，后续可以替换成真实的姓名、经历、项目方向或联系方式。",
-      "下面的 Sound Wall 负责表达生活气质：哪些声音构成了我的背景音。"
+      "我关注机器人如何从感知中理解世界，也关心 agentic policy 如何把决策、行动与反馈连接起来。",
+      "书影音像一间小馆，收纳我理解生活的不同入口；运动则让我保持清醒、轻快和一点胜负欲。"
     ],
-    tags: ["姓名待填", "专业待填", "兴趣待填", "联系方式待填"]
+    tags: ["🏸 羽毛球", "🏀 篮球", "🏓 乒乓球", "🏐 排球"]
   },
   soundWall: {
     title: "个人唱片墙 / Sound Wall",
     description:
-      "一个克制、干净、带有个人情绪的声音档案。这里的专辑和歌曲乱序排列，像一块音乐记忆拼贴：它们共同构成我生活里的背景音。",
+      "这一面墙收纳音乐带来的情绪光影：R&B、流行、独立和电影原声彼此贴近，组成我生活里的背景音。",
     albums: [
       { title: "After Hours", artist: "The Weeknd", note: "夜路、霓虹和迟来的自省。", tone: "red", size: "feature", cover: "assets/covers/after-hours.jpg" },
       { title: "心中的日月", artist: "王力宏", note: "东方质感的辽阔感，像一段长途旅行。", tone: "sun", size: "tall", cover: "assets/covers/sun-moon-cropped.jpg" },

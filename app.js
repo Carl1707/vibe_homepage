@@ -192,7 +192,7 @@
       description: wall.description,
       items: wall.books,
       layout,
-      label: "BOOK NOTE",
+      label: "BOOK MEMORY",
       titleSelector: "#book-wall-title",
       descriptionSelector: "#book-wall-description",
       grid: $("#book-wall-grid")
@@ -226,7 +226,7 @@
       description: wall.description,
       items: wall.films,
       layout,
-      label: "SCREEN NOTE",
+      label: "SCREEN MEMORY",
       titleSelector: "#film-wall-title",
       descriptionSelector: "#film-wall-description",
       grid: $("#film-wall-grid")
